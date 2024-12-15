@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United States Senate Database</title>
+    <div class="row">
+        <div class="topColumns">
+            <form action=index.html> <!--TODO: Make login page-->
+                <input type="submit" value="View Senators" class="button">
+            </form>
+        </div>
+        <div class="topColumns">
+            <form action=Committee.html> <!--TODO: Make committees page-->
+                <input type="submit" value="View by Committees/Subcommittees" class="button">
+            </form>
+        </div>
+        <div class="topColumns">
+            <form action=state.html> <!--TODO: Make states page-->
+                <input type="submit" value="View by State" class="button">
+            </form>
+        </div>
+    </div>
+    <style>
+        .title {
+            background-color: #804e49;
+            text-align:center;
+            color:#e7decd;
+            font-family: Geneva;
+        }
+        .bodyText {
+            color:#e7decd;
+            font-family: Geneva;
+        }
+        .subTitleFailed {
+            background-color: #1e1e1f;
+            color:#EF2C1A;
+            font-family: Geneva;
+        }
+        .searchBar{
+            width: 15%;
+            background-color:#e7decd;
+        }
+        .button{
+            background-color: #22577a;
+            border: 2px solid #182d11;
+            color: #e7decd;
+            font-size: 14px;
+            transition-duration: 0.4s;
+            padding: 10px 24px;
+        }
+        .button:hover{
+            background-color: #182d11;
+        }
+        .column{
+            float: left;
+            width: 50%;
+        }
+        .topColumns{
+            float: left;
+            width: 33%;
+        }
+        .row:after{
+            content:"";
+            display: table;
+            clear: both;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            color: #e7decd;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #e7decd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #182d11;
+        }
+        tr{
+            background-color: #101e0b;  
+        }
+        tr:nth-child(even) {
+            background-color: #182d11;
+        }
+    </style>
+</head>
+<body style="background-color: #1e1e1f;">
+    <h1 class="title">
+        United States Senate Database
+    </h1>
+    <div class="row">
+        <div class="column">
+            <h4 class="bodyText"> <!--column 1-->
+                <form action="addSenator.php" method="post">
+                    <label for="namebar" class="bodyText">Add/Update Senator: </label>
+                    <input class="searchBar" id="namebar" name="namebar" type="text" placeholder="Enter a Name">
+                    <br>
+                    <label for="statebar" class="bodyText">State Represented: </label>
+                    <input class="searchBar" id="statebar" name="statebar" type="text" placeholder="Ex. 'Idaho'">
+                    <br>
+                    <label for="partybar" class="bodyText">Party Affiliation: </label>
+                    <select id="partybar" name="partybar">
+                        <option value="r">Republican</option>
+                        <option value="d">Democrat</option>
+                        <option value="i">Independent</option>
+                    </select>
+                    <br>
+                    <label for="phonebar" class="bodyText">Phone Number: </label>
+                    <input class="searchBar" id="phonebar" name="phonebar" type="text" placeholder="202-22X-XXXX">
+                    <br>
+                    <label for="termsbar" class="bodyText">(previous)Terms Served: </label>
+                    <input class="searchBar" id="termsbar" name="termsbar" type="text" placeholder="0">
+                    <br>
+                    <label for="classbar" class="bodyText">Class: </label>
+                    <input class="searchBar" id="classbar" name="classbar" type="text" placeholder="III">
+                    <br>
+                    <button class="button" name="fetch" value="FETCH DATA">Add/Update</button>
+                </form>
+            </h4>
+            <br>
+        </div>
+        <div class="column">
+            <h4 class="bodyText"> <!--column 2-->
+                <form action="remSenator.php" method="post">
+                    <label for="namebar" class="bodyText">Remove Senator: </label>
+                    <input class="searchBar" id="namebar" name="namebar" type="text" placeholder="Enter a Name">
+                    <br>
+                    <button class="button" name="fetch" value="FETCH DATA">Remove</button>
+                </form>
+            </form>
+            </h4>
+        </div>
+    </div>
+</body>
+</html>

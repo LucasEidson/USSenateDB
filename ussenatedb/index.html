@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United States Senate Database</title>
+    <div class="row">
+        <div class="topColumns">
+            <form action=form.html> 
+                <input type="submit" value="Login as Admin" class="button">
+            </form>
+        </div>
+        <div class="topColumns">
+            <form action=Committee.html> 
+                <input type="submit" value="View by Committees/Subcommittees" class="button">
+            </form>
+        </div>
+        <div class="topColumns">
+            <form action=state.html> 
+                <input type="submit" value="View by State" class="button">
+            </form>
+        </div>
+    </div>
+    <style>
+        .title {
+            background-color: #804e49;
+            text-align:center;
+            color:#e7decd;
+            font-family: Geneva;
+        }
+        .bodyText {
+            color:#e7decd;
+            font-family: Geneva;
+        }
+        .searchBar{
+            width: 15%;
+            background-color:#e7decd;
+        }
+        .button{
+            background-color: #22577a;
+            border: 2px solid #182d11;
+            color: #e7decd;
+            font-size: 14px;
+            transition-duration: 0.4s;
+            padding: 10px 24px;
+        }
+        .button:hover{
+            background-color: #182d11;
+        }
+        .column{
+            float: left;
+            width: 50%;
+        }
+        .topColumns{
+            float: left;
+            width: 33%;
+        }
+        .row:after{
+            content:"";
+            display: table;
+            clear: both;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            color: #e7decd;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #e7decd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #182d11;
+        }
+        tr{
+            background-color: #101e0b;  
+        }
+        tr:nth-child(even) {
+            background-color: #182d11;
+        }
+    </style>
+</head>
+<body style="background-color: #1e1e1f;">
+    <h1 class="title">
+        United States Senate Database
+    </h1>
+    <div class="row">
+        <div class="column">
+            <h4 class="bodyText"> <!--Contains all filter options-->
+                Filter By:
+                <form action="searchSenators.php" method="post">
+                    <label for="nameSearch" class="bodyText">Search By Name: </label>
+                    <input class="searchBar" id="nameSearch" name="nameSearch" type="text" placeholder="Enter a Name">
+                    <br>
+                    <label for="stateSearch" class="bodyText">State: </label>
+                    <input class="searchBar" id="stateSearch" name="stateSearch" type="text" placeholder="Ex. 'Idaho'">
+                    <br>
+                    <label for="partySearch" class="bodyText">Party Affiliation: </label>
+                    <select id="partySearch" name="partySearch">
+                        <option value="all">All Parties</option>
+                        <option value="r">Republican</option>
+                        <option value="d">Democrat</option>
+                        <option value="i">Independent</option>
+                    </select>
+                    <br>
+                    <label for="showLeaders" class="bodyText">Show Only Senate Leaders: </label>
+                    <input type="checkbox" id="showLeaders" name="showLeaders" value="show">
+                    <br>
+                    <button class="button" name="fetch" value="FETCH DATA">Search</button>
+            </h4>
+            <br>
+        </div>
+        <div class="column">
+            <h4 class="bodyText"> <!--Contains all sorting options (line breaks between checkboxes with <br>)-->
+                Sort By: <br>
+                <input type="radio" id="soonSort" name="sortSelect" value="Class" checked>
+                <label for="soonSort" class="bodyText">Re-election Date (Soonest)</label>
+                <br>
+                <input type="radio" id="lateSort" name="sortSelect" value="Class DESC">
+                <label for="lateSort" class="bodyText">Re-election Date (Latest)</label>
+                <br>
+                <input type="radio" id="termsSort" name="sortSelect" value="Terms_Served DESC">
+                <label for="termsSort" class="bodyText">Terms Served</label>
+                <br>
+                <input type="radio" id="alphabetSort" name="sortSelect" value="Name">
+                <label for="alphabetSort" class="bodyText">Alphabetical</label>
+            </form>
+            </h4>
+        </div>
+    </div>
+</body>
+</html>
